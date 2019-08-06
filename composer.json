@@ -13,7 +13,9 @@
         "guzzlehttp/guzzle": "^6.3",
         "imangazaliev/didom": "^1.14",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "mesilov/yandex-dialogs-php-sdk": "dev-master",
+      "ext-json": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

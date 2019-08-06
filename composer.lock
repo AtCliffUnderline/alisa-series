@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbf2c9590bc0067c15defe909802b4df",
+    "content-hash": "b69e99ee2eb023c49c7a9dc60479ce19",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -994,6 +994,56 @@
                 "storage"
             ],
             "time": "2019-05-20T20:21:14+00:00"
+        },
+        {
+            "name": "mesilov/yandex-dialogs-php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mesilov/yandex-dialogs-php-sdk.git",
+                "reference": "b0cf2b79df923a274103f25520bc220e442747ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mesilov/yandex-dialogs-php-sdk/zipball/b0cf2b79df923a274103f25520bc220e442747ea",
+                "reference": "b0cf2b79df923a274103f25520bc220e442747ea",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "~0.3",
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "phpunit/phpunit": "~4.8",
+                "phpunit/phpunit-mock-objects": "2.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Yandex\\Dialogs\\": "src/Dialogs"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxim Mesilov",
+                    "homepage": "https://github.com/mesilov/"
+                }
+            ],
+            "description": "Yandex dialogs API PHP-wrapper",
+            "homepage": "https://github.com/mesilov/yandex-dialogs-php-sdk",
+            "keywords": [
+                "api",
+                "dialogs",
+                "php",
+                "yandex"
+            ],
+            "time": "2018-08-08T20:08:15+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4969,7 +5019,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "mesilov/yandex-dialogs-php-sdk": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

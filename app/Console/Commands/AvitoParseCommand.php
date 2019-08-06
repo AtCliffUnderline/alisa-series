@@ -12,7 +12,7 @@ class AvitoParseCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'avito:parse';
+    protected $signature = 'lostfilm:parse';
 
     /**
      * The console command description.
@@ -34,12 +34,10 @@ class AvitoParseCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
     public function handle()
     {
-        echo 'parsing started';
-        $avito = new AvitoParsingService();
-        echo '\n parsing ended';
+
     }
 }
