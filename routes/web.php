@@ -11,8 +11,11 @@
 |
 */
 
+use App\Services\AlisaMainService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/alisa', function (\Illuminate\Http\Request $request) {
-   $test = new \App\Services\AlisaMainService($request->all());
+Route::post('/alisa', function (Request $request) {
+   $test = new AlisaMainService($request->all());
+   return $test->testResponse();
 });
