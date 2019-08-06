@@ -40,9 +40,7 @@ class LostfilmParseCommand extends Command
      */
     public function handle(LostfilmParsingServiceInterface $lostfilmParsingService)
     {
-//        $lostfilmParsingService->parseFilms();
-//        $lostfilmParsingService->getSeriesNames();
-        $series = new SeriesMatchService();
-        $series->predict('13 причин почему игра престолов');
+        $lostfilmParsingService->parseFilms();
+        $lostfilmParsingService->getSeriesNames();
     }
 }
