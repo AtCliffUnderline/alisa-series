@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Services\Interfaces\LostfilmParsingServiceInterface;
+use App\Services\SeriesMatchService;
 use Illuminate\Console\Command;
 
 class LostfilmParseCommand extends Command
@@ -39,7 +40,9 @@ class LostfilmParseCommand extends Command
      */
     public function handle(LostfilmParsingServiceInterface $lostfilmParsingService)
     {
-        $lostfilmParsingService->parseFilms();
-        $lostfilmParsingService->getSeriesNames();
+//        $lostfilmParsingService->parseFilms();
+//        $lostfilmParsingService->getSeriesNames();
+        $series = new SeriesMatchService();
+        $series->predict('13 причин почему игра престолов');
     }
 }

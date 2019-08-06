@@ -14,4 +14,6 @@ interface SeriesRepositoryInterface
     public function getSeriesWithoutName(int $chunk, \Closure $function);
 
     public function addSeriesName(Series $series, string $seriesName): void;
+
+    public function getSeries(): ?Collection;
 }

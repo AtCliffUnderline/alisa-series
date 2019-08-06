@@ -32,4 +32,9 @@ class SeriesRepository implements SeriesRepositoryInterface
         $series->series_name = $seriesName;
         $series->update();
     }
+
+    public function getSeries(): ?Collection
+    {
+        return Series::all();
+    }
 }
