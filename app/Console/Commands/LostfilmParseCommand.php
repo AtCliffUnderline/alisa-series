@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\LostfilmParsingService;
+use App\Services\Interfaces\LostfilmParsingServiceInterface;
 use Illuminate\Console\Command;
 
 class LostfilmParseCommand extends Command
@@ -34,11 +34,11 @@ class LostfilmParseCommand extends Command
     /**
      * Execute the console command.
      *
+     * @param LostfilmParsingServiceInterface $lostfilmParsingService
      * @return void
      */
-    public function handle()
+    public function handle(LostfilmParsingServiceInterface $lostfilmParsingService)
     {
-        $parser = new LostfilmParsingService();
-        $parser->parse();
+        $lostfilmParsingService->parse();
     }
 }
