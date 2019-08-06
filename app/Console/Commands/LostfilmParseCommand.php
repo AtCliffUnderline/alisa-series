@@ -39,6 +39,7 @@ class LostfilmParseCommand extends Command
      */
     public function handle(LostfilmParsingServiceInterface $lostfilmParsingService)
     {
-        $lostfilmParsingService->parse();
+        $lostfilmParsingService->parseFilms();
+        $lostfilmParsingService->getSeriesNames();
     }
 }

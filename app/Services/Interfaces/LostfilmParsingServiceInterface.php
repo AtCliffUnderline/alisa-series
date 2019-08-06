@@ -4,5 +4,7 @@ namespace App\Services\Interfaces;
 
 interface LostfilmParsingServiceInterface
 {
-    public function parse();
+    public function parseFilms();
+
+    public function getSeriesNames();
 }
