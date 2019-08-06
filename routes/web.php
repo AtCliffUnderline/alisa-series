@@ -13,6 +13,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/alisa', function (\Illuminate\Http\Request $request) {
+Route::post('/alisa', function (\Illuminate\Http\Request $request) {
    $test = new \App\Services\AlisaMainService($request->all());
 });
