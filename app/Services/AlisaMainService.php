@@ -26,15 +26,10 @@ class AlisaMainService
             ->setTitle('Кнопка1')
             ->setUrl('https://ya.ru');
 
-        $button2 = new Button();
-        $button2
-            ->setTitle('Кнопка2');
-
         $response = $this->responseFactory
             ->setText('Привет')
             ->setTts('Привет')
             ->addButton($button1)
-            ->addButton($button2)
             ->buildResponse();
 
         return Formatter::toArray($response);
