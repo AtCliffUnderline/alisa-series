@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Services\AvitoParsingService;
+use App\Services\LostfilmParsingService;
 use Illuminate\Console\Command;
 
-class AvitoParseCommand extends Command
+class LostfilmParseCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -38,6 +38,7 @@ class AvitoParseCommand extends Command
      */
     public function handle()
     {
-
+        $parser = new LostfilmParsingService();
+        $parser->parse();
     }
 }
