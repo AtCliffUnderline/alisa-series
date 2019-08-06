@@ -30,8 +30,8 @@ class LostfilmParsingService implements LostfilmParsingServiceInterface
      */
     public function __construct()
     {
-        $lastUser = Cache::get('lastUser');
-        if (!$lastUser) {
+        $this->lastID = Cache::get('lastUser');
+        if (!$this->lastID) {
             $lastUser = Favourite::orderBy('user_id', 'desc')->first();
             $this->lastID = $lastUser->user_id ?? 1;
         }

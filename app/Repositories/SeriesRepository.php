@@ -22,7 +22,7 @@ class SeriesRepository implements SeriesRepositoryInterface
         return $series;
     }
 
-    public function getSeriesWithoutName(int $chunk, \Closure $function): Collection
+    public function getSeriesWithoutName(int $chunk, \Closure $function)
     {
         return Series::whereNull('series_name')->chunk($chunk,$function);
     }

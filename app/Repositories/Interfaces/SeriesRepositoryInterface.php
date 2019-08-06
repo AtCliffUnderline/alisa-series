@@ -11,7 +11,7 @@ interface SeriesRepositoryInterface
 
     public function addSeries(string $seriesLink): Series;
 
-    public function getSeriesWithoutName(int $chunk, \Closure $function): Collection;
+    public function getSeriesWithoutName(int $chunk, \Closure $function);
 
     public function addSeriesName(Series $series, string $seriesName): void;
 }
