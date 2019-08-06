@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/alisa', function (Request $request) {
-   $test = new AlisaMainService($request->all());
+   $test = new AlisaMainService();
    return $test->testResponse();
 });

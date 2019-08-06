@@ -12,8 +12,9 @@ class AlisaMainService
 {
     private $responseFactory;
 
-    public function __construct(array $data)
+    public function __construct()
     {
+        $data = json_decode(trim(file_get_contents('php://input')), true);
         $dialogRequest = Fabric::initFromArray($data);
         $this->responseFactory = new \Yandex\Dialogs\Webhook\Response\Fabric($dialogRequest);
     }
