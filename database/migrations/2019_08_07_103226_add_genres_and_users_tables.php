@@ -31,6 +31,7 @@ class AddGenresAndUsersTables extends Migration
 
         Schema::create('user_series', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('series_id');
             $table->boolean('is_favourite');
         });
