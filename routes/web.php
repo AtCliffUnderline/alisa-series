@@ -11,11 +11,7 @@
 |
 */
 
-use App\Services\AlisaMainService;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AlisaConversationController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/alisa', function (Request $request) {
-   $test = new AlisaMainService();
-   return $test->testResponse();
-});
+Route::post('/alisa', AlisaConversationController::class . '@incomingRequest');

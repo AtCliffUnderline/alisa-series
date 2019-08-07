@@ -4,11 +4,10 @@
 namespace App\Services;
 
 
+use App\Services\Interfaces\AlisaMainServiceInterface;
 use Yandex\Dialogs\Webhook\Request\Fabric;
-use Yandex\Dialogs\Webhook\Response\DTO\Buttons\Button;
-use Yandex\Dialogs\Webhook\Response\Formatters\Formatter;
 
-class AlisaMainService
+class AlisaMainService implements AlisaMainServiceInterface
 {
     private $responseFactory;
 
@@ -19,19 +18,8 @@ class AlisaMainService
         $this->responseFactory = new \Yandex\Dialogs\Webhook\Response\Fabric($dialogRequest);
     }
 
-    public function testResponse()
+    public function processRequest()
     {
-        $button1 = new Button();
-        $button1
-            ->setTitle('Кнопка1')
-            ->setUrl('https://ya.ru');
 
-        $response = $this->responseFactory
-            ->setText('Привет')
-            ->setTts('Привет')
-            ->addButton($button1)
-            ->buildResponse();
-
-        return Formatter::toArray($response);
     }
 }
