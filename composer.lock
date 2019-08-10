@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b69e99ee2eb023c49c7a9dc60479ce19",
+    "content-hash": "615a8bd298cf640a9e92eabe4806b708",
     "packages": [
+        {
+            "name": "atcliff/yandex-dialogues-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AtCliffUnderline/yandex-dialogues-sdk.git",
+                "reference": "9aed61fcd1b503b54a009ce20b94b83f987aa459"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AtCliffUnderline/yandex-dialogues-sdk/zipball/9aed61fcd1b503b54a009ce20b94b83f987aa459",
+                "reference": "9aed61fcd1b503b54a009ce20b94b83f987aa459",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.3",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "YaDialogues\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "AtCliff_",
+                    "homepage": "https://github.com/AtCliffUnderline/"
+                }
+            ],
+            "description": "Yandex dialogs API PHP-wrapper",
+            "homepage": "https://github.com/AtCliffUnderline/yandex-dialogues-sdk",
+            "keywords": [
+                "Dialogues",
+                "api",
+                "dialogs",
+                "php",
+                "yandex"
+            ],
+            "time": "2019-08-10T08:48:12+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -5020,12 +5066,14 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "atcliff/yandex-dialogues-sdk": 20,
         "mesilov/yandex-dialogs-php-sdk": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "ext-json": "*"
     },
     "platform-dev": []
 }

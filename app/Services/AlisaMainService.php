@@ -6,7 +6,8 @@ namespace App\Services;
 
 use App\Repositories\Interfaces\{FavouritesRepositoryInterface, SeriesRepositoryInterface, UserRepositoryInterface};
 use App\Services\Interfaces\AlisaMainServiceInterface;
-use Yandex\Dialogs\Webhook\Request\Fabric;
+use YaDialogues\Dialogue;
+use YaDialogues\Response;
 
 class AlisaMainService implements AlisaMainServiceInterface
 {
@@ -17,45 +18,61 @@ class AlisaMainService implements AlisaMainServiceInterface
     /** @var FavouritesRepositoryInterface $favouritesRepository */
     private $favouritesRepository;
 
-    private $dialogRequest;
-    private $responseFactory;
+    /**
+     * @var Dialogue
+     */
+    private $dialog;
+
+    /**
+     * @var Response
+     */
+    private $response;
 
     private $user;
 
     /**
      * AlisaMainService constructor.
+     * @param array $requestArr
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function __construct()
     {
-        $data = json_decode(trim(file_get_contents('php://input')), true);
-        $this->dialogRequest = Fabric::initFromArray($data);
-        $this->responseFactory = new \Yandex\Dialogs\Webhook\Response\Fabric($this->dialogRequest);
-
         $this->seriesRepository = app()->make(SeriesRepositoryInterface::class);
         $this->favouritesRepository = app()->make(FavouritesRepositoryInterface::class);
         $this->userRepository = app()->make(UserRepositoryInterface::class);
     }
 
-    public function processRequest(): \Yandex\Dialogs\Webhook\Response\Fabric
+    /**
+     * @param array $requestArr
+     * @return array
+     * @throws \TextNotProvidedException
+     */
+    public function processRequest(array $requestArr): array
     {
+        $this->dialog = new Dialogue();
+        $this->dialog->createDialogue($requestArr);
+
+        $this->response = $this->dialog->createResponse();
+
         if(!$this->authorizeCheck()) {
-            return $this->responseFactory;
+            return $this->response->buildResponse();
         }
     }
 
+    /**
+     * @return bool
+     */
     private function authorizeCheck(): bool
     {
-        $yandexID = $this->dialogRequest->getSession()->getUserId();
+        $yandexID = $this->dialog->getRequest()->getSession()->getUserId();
         if (!$this->user = $this->userRepository->getUserByYandexID($yandexID))
         {
             $this->user = $this->userRepository->addUserByYandexID($yandexID);
-            $this->responseFactory
+            $this->response
                 ->setText(view('dialogues.greet-no-user'))
-                ->setTts(view('dialogues.greet-no-user'))
-                ->buildResponse();
-            return true;
+                ->setTts(view('dialogues.greet-no-user'));
+            return false;
         }
-        return false;
+        return true;
     }
 }

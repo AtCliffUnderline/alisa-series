@@ -11,7 +11,6 @@
 |
 */
 
-use App\Http\Controllers\AlisaConversationController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/alisa', AlisaConversationController::class . '@incomingRequest');
+Route::post('/alisa', 'AlisaConversationController@incomingRequest');

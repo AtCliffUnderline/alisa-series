@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Services\Interfaces\AlisaMainServiceInterface;
-use Yandex\Dialogs\Webhook\Response\Formatters\Formatter;
+use Illuminate\Http\Request;
 
 class AlisaConversationController extends Controller
 {
-    public function incomingRequest(AlisaMainServiceInterface $service)
+    public function incomingRequest(Request $request, AlisaMainServiceInterface $service)
     {
-        return Formatter::toArray($service->processRequest());
+        return $service->processRequest($request->all());
     }
 }
