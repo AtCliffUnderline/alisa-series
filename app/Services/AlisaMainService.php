@@ -115,6 +115,7 @@ class AlisaMainService implements AlisaMainServiceInterface
         $command = mb_strtolower(trim($command));
         if(strpos($command,"подобрать") !== false ||
             strpos($command,"подбери") !== false) {
+            Cache::put('stage_' . $this->user->id, 3, 2600);
             //Подбор сериалов
         } else {
             $series = $this->matchService->predict($command);
