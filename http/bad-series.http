@@ -1,0 +1,41 @@
+POST http://localhost:8000/alisa
+Content-Type: application/json
+Cookie: XDEBUG_SESSION=XDEBUG_ECLIPSE
+
+{
+  "meta": {
+    "client_id": "ru.yandex.searchplugin/7.16 (none none; android 4.4.2)",
+    "interfaces": {
+      "account_linking": {},
+      "payments": {},
+      "screen": {}
+    },
+    "locale": "ru-RU",
+    "timezone": "UTC"
+  },
+  "request": {
+    "command": "тупа сериалы которых не существует",
+    "nlu": {
+      "entities": [],
+      "tokens": [
+        "тупа",
+        "сериалы",
+        "которых",
+        "не",
+        "существует"
+      ]
+    },
+    "original_utterance": "тупа сериалы которых не существует",
+    "type": "SimpleUtterance"
+  },
+  "session": {
+    "message_id": 2,
+    "new": false,
+    "session_id": "6e0ae482-84c62038-e96f8d4b-5a71bcf6",
+    "skill_id": "98bc5b4c-7283-4836-9630-302ef357e183",
+    "user_id": "4747BE595D0DD0FA6C72FF719C9A3749DB9D984B0F8016A4DA9EDD964A30F830"
+  },
+  "version": "1.0"
+}
+
+###

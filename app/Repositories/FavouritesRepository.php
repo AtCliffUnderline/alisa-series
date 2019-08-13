@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Models\Favourite;
 use App\Repositories\Interfaces\FavouritesRepositoryInterface;
+use Illuminate\Database\Eloquent\Collection;
 
 class FavouritesRepository implements FavouritesRepositoryInterface
 {
@@ -16,4 +17,5 @@ class FavouritesRepository implements FavouritesRepositoryInterface
         $favourite->save();
         return $favourite;
     }
+
 }

@@ -31,12 +31,12 @@ class SeriesMatchService
         $words = explode(' ', $phrase);
         for ($i = 0; $i < sizeof($words); $i++) {
             $searchPhrase = trim(mb_strtolower(implode(' ', [$searchPhrase, $words[$i]])));
-            if($searchPhrase == '') {
+            if ($searchPhrase == '') {
                 break;
             }
             foreach ($this->series as $series) {
                 if ($series['series_name'] == $searchPhrase) {
-                    $this->predictedSeries[] = $series['id'];
+                    $this->predictedSeries[$series['id']] = $this->seriesRepo->getSeriesNameById($series['id']);
                     $this->predict(implode(' ', array_slice($words, $i + 1)));
                     break;
                 }

@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
-use App\Repositories\Interfaces\{FavouritesRepositoryInterface, SeriesRepositoryInterface, UserRepositoryInterface};
-use App\Repositories\{SeriesRepository, FavouritesRepository, UserRepository};
+use App\Repositories\Interfaces\{FavouritesRepositoryInterface,
+    SeriesRepositoryInterface,
+    UserRepositoryInterface,
+    UserSeriesRepositoryInterface};
+use App\Repositories\{SeriesRepository, FavouritesRepository, UserRepository, UserSeriesRepository};
 use App\Services\{AlisaMainService, LostfilmParsingService};
 use App\Services\Interfaces\{AlisaMainServiceInterface, LostfilmParsingServiceInterface};
 use Illuminate\Support\ServiceProvider;
@@ -35,5 +38,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(FavouritesRepositoryInterface::class, FavouritesRepository::class);
         $this->app->bind(SeriesRepositoryInterface::class, SeriesRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(UserSeriesRepositoryInterface::class, UserSeriesRepository::class);
     }
 }

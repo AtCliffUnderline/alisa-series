@@ -33,6 +33,11 @@ class SeriesRepository implements SeriesRepositoryInterface
         $series->update();
     }
 
+    public function getSeriesNameById(int $seriesId): string
+    {
+        return Series::findOrFail($seriesId)->series_name;
+    }
+
     public function getSeries(): ?Collection
     {
         return Series::all();
